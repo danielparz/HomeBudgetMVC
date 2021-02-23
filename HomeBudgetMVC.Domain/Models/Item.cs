@@ -10,6 +10,7 @@ namespace HomeBudgetMVC.Domain.Models
         public string Name { get; set; }
         public int SubcategoryId { get; set; }
         public decimal Value { get; set; }
+        public DateTime Date { get; set; }
 
         public virtual Subcategory Subcategory { get; set; }
     }
