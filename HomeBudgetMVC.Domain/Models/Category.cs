@@ -9,7 +9,9 @@ namespace HomeBudgetMVC.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
+        public int? ParentCategoryId { get; set; }
 
-        public virtual ICollection<Subcategory> Subcategories { get; set; }
+        public virtual Category ParentCategory { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

@@ -11,7 +11,6 @@ namespace HomeBudgetMVC.Infrastructure
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
-        public DbSet<Subcategory> Subcategories { get; set; }
 
         public Context(DbContextOptions options) : base(options)
         {
@@ -22,13 +21,9 @@ namespace HomeBudgetMVC.Infrastructure
             base.OnModelCreating(builder);
 
             builder.Entity<Item>()
-                .HasOne(it => it.Subcategory)
-                .WithMany(sub => sub.Items)
-                .HasForeignKey(fk => fk.SubcategoryId);
-            builder.Entity<Subcategory>()
-                .HasOne(a => a.Category)
-                .WithMany(b => b.Subcategories)
-                .HasForeignKey(fk => fk.CategoryId);
+                .HasOne(it => it.Category)
+                .WithMany(cat => cat.Items)
+                .HasForeignKey(fk => fk.CategoryId);            
         }
     }
 }
