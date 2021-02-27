@@ -12,6 +12,7 @@ namespace HomeBudgetMVC.Domain.Models
         public int? ParentCategoryId { get; set; }
 
         public virtual Category ParentCategory { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Item> Items { get; set; }
     }
 }

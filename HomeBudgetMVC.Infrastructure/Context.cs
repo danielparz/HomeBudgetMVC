@@ -23,7 +23,11 @@ namespace HomeBudgetMVC.Infrastructure
             builder.Entity<Item>()
                 .HasOne(it => it.Category)
                 .WithMany(cat => cat.Items)
-                .HasForeignKey(fk => fk.CategoryId);            
+                .HasForeignKey(fk => fk.CategoryId);
+            builder.Entity<Category>()
+                .HasOne(pc => pc.ParentCategory)
+                .WithMany(cc => cc.Categories)
+                .HasForeignKey(fk => fk.ParentCategoryId);
         }
     }
 }
