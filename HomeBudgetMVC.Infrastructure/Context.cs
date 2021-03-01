@@ -28,6 +28,9 @@ namespace HomeBudgetMVC.Infrastructure
                 .HasOne(pc => pc.ParentCategory)
                 .WithMany(cc => cc.Categories)
                 .HasForeignKey(fk => fk.ParentCategoryId);
+            builder.Entity<Item>(
+                it => it.Property(i => i.Value)
+                .HasColumnType("decimal(9, 2)"));
         }
     }
 }

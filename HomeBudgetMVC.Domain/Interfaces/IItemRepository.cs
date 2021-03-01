@@ -14,6 +14,7 @@ namespace HomeBudgetMVC.Domain.Interfaces
         IQueryable<Item> GetItemsByCategoryId(int categoryId);
         Item GetItemById(int itemId);
         IQueryable<Item> GetItemsByDate(int month, int year);
-        public int UpdateItem(Item item);
+        int UpdateItem(Item item);
+        IQueryable<Item> GetAllItems();
     }
 }

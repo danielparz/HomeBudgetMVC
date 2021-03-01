@@ -57,5 +57,11 @@ namespace HomeBudgetMVC.Infrastructure.Repositories
             _context.SaveChanges();
             return item.Id;
         }
+
+        public IQueryable<Item> GetAllItems()
+        {
+            var items = _context.Items;
+            return items;
+        }
     }
 }
