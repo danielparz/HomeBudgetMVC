@@ -53,8 +53,12 @@ namespace HomeBudgetMVC.Infrastructure.Repositories
 
         public int UpdateItem(Item item)
         {
-            var itemToUpdate = _context.Items.Update(item);
-            _context.SaveChanges();
+            var itemToUpdate = GetItemById(item.Id);
+            if (itemToUpdate != null)
+            {
+                itemToUpdate = item;
+                _context.SaveChanges();
+            }
             return item.Id;
         }
 

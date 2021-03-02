@@ -67,8 +67,12 @@ namespace HomeBudgetMVC.Infrastructure.Repositories
 
         public int UpdateCategory(Category category)
         {
-            _context.Categories.Update(category);
-            _context.SaveChanges();
+            var categoryToUpdate = GetCategoryById(category.Id);
+            if (categoryToUpdate != null)
+            {
+                categoryToUpdate = category;
+                _context.SaveChanges();
+            }
             return category.Id;
         }
     }
